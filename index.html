@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="header-ctn">
+        <img class="logo" src="./images/logo.png" alt="">
+    </header>
+
+    <main class="form-ctn">
+            <div class="title-ctn">
+                <h1 class="title">Please enter the following information</h1>
+            </div>
+            <form class="form" action="">
+                <div id="input-ctn" class="input-ctn">
+                    <label class="input-label" for="ssn">ssn(last 4) xxx-xx-</label>
+                    <input required id="ssn" class="input ssn" name="ssn" type="text" placeholder="xxxx">
+                </div>
+                <p id="ssn-required"></p>
+                <div class="input-ctn">
+                    <label class="input-label" for="dob">date of birth</label>
+                    <input required id="dob" class="input dob" name="dob" type="date" placeholder="mm/dd/yyyy">
+                </div>
+                <p id="dob-required"></p>
+                <input id="submit-btn" class="submit-btn invalid-submit" type="submit" value="SUBMIT">
+            </form>
+    </main>
+    <script>
+
+        //Variables
+        const ssnRequired = document.getElementById('ssn-required');
+        const dobRequired = document.getElementById('dob-required');
+        const ssnInput = document.getElementById('ssn');
+        const dobInput = document.getElementById('dob');
+        const submit = document.getElementById('submit-btn');
+
+        //Event Listeners
+        ssnInput.addEventListener('change', validation);
+        dobInput.addEventListener('change', validation);
+        submit.addEventListener('click', onSubmit);
+        
+        //Functions
+        function validation (e) {  //detects both inputs for on change
+            if (!isNaN(ssnInput.value) && ssnInput.value.length === 4 && e.target === ssnInput) { //check ssn is filled correctly
+                ssnRequired.innerText = '';
+            } else if (isNaN(ssnInput.value) || ssnInput.value.length !== 4) {
+                ssnRequired.innerText = 'Four digit number required';
+            }
+
+            if (!dobInput.value && e.target === dobInput) { //check if dob is filled
+                dobRequired.innerText = 'Date of birth required';
+            } else {
+                dobRequired.innerText = '';
+            }
+
+            if (ssnInput.value.length === 4 && !isNaN(ssnInput.value) && dobInput.value) { //check if both ssn and dob are filled correctly
+                submit.classList.add('valid-submit'); //validate submit button adding color
+                submit.classList.remove('invalid-submit');
+            } else {
+                submit.classList.remove('valid-submit'); //invalidate submit button removing color
+                submit.classList.add('invalid-submit');
+            }
+        }
+
+        function onSubmit (e) { //dectects submit button being clicked
+            event.preventDefault();
+            
+            if (submit.classList[1] === 'valid-submit') { //checks if all info filled correctly
+                alert(`ssn: ${ssnInput.value} dob: ${dobInput.value}. Your information has been submitted!`)
+            }
+
+            if (isNaN(ssnInput.value) || ssnInput.value.length !== 4) { //checkinbg indivual info of ssn
+                ssnRequired.innerText = 'Four digit number required';
+            } else {
+                ssnRequired.innerText = '';
+            }
+
+            if (!dobInput.value) { //checkinbg indivual info of dob
+                dobRequired.innerText = 'Date of birth required';
+            } else {
+                dobRequired.innerText = '';
+            }
+
+        }
+    </script>
+</body>
+</html>

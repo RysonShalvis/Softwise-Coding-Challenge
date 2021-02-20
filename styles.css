@@ -1,0 +1,249 @@
+/* START Moblile Section */
+
+body {
+    margin: 0;
+    background-color: rgb(240,242,243);
+    font-family: 'Roboto';
+}
+
+.header-ctn {
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 1px 1px 10px rgb(180,180,180);
+}
+
+.logo {
+    margin-top: 10px;
+}
+
+.form-ctn {
+    margin: 50px 10px;
+    border-radius: 10px;
+    background-color: white;
+    border-color: white;
+    box-shadow: 1px 1px 3px rgb(180,180,180);
+    height: 350px;
+}
+
+.title-ctn {
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0px 1px 5px rgb(180,180,180);
+
+}
+
+.title {
+    padding-top: 10px;
+    text-align: center;
+    color: rgb(75,113,177);
+    
+    font-weight: 500;
+    
+}
+
+.form {
+    position: relative;
+}
+
+
+.input-ctn {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 30px;
+    
+}
+
+.input-label {
+    color: rgb(180,180,180);
+    font-family: 'Roboto';
+    font-weight: 100 !important;
+}
+
+.input {
+    height: 30px;
+    border-style: solid;
+    border-radius: 5px;
+    border-color: lightgray;
+    margin-top: 5px;
+    padding-left: 10px;
+}
+
+.dob::-webkit-calendar-picker-indicator {
+     opacity: 1; 
+     width: 30px;
+     height: 30px;
+     cursor: pointer;
+     
+}
+
+.dob {
+    position: relative;
+}
+
+.dob::after {
+    position: absolute;
+    right: 10px;
+    content: '19';
+    pointer-events: none;
+}
+
+input[type=date]:invalid::-webkit-datetime-edit,
+input::placeholder {
+    color: rgb(180,180,180);
+    font-size: 16px;
+}
+
+.submit-btn {
+    position: absolute;
+    right: 40px;
+    border-style: solid;
+    font-weight: 900;
+    font-size: 20px;
+    border-radius: 50px;
+    outline: none;
+    border-width: 1px 1px 5px;
+    height: 45px;
+    width: 135px;
+    color: white;
+    margin-top: 20px;
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.invalid-submit {
+    background-color: rgb(237,240,238);
+    border-color: rgb(217,226,219);
+}
+
+.valid-submit {
+    background-color: rgb(161,197,92);
+    border-color: rgb(113,122,94);
+    cursor: pointer;
+    transition: all ease-in 100ms;
+}
+
+.valid-submit:hover {
+    color: rgb(161,197,92);
+    background-color: white;
+}
+
+#ssn-required {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    color: red;
+    font-size: 12px;
+}
+
+#dob-required {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    color: red;
+    font-size: 12px;
+}
+
+/* END Moblile Section */
+
+
+/* START Tablet Section */
+ 
+@media screen and (min-width: 479px) {
+
+    .form-ctn {
+        width: 479px;
+        height: 350px;
+        margin: 100px auto;
+    }
+
+    .title {
+        font-size: 38px !important;
+        margin-top: 5px;
+        padding-bottom: 50px;
+    }
+
+    .input-ctn {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 40px;
+    }
+
+    .input-label {
+        text-align: right;
+        font-size: 22px;
+        font-weight: 400;
+    }
+
+    .input {
+        width: 200px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #ssn-required {
+        top: 25px;
+        left: 15px;
+    }
+
+    #dob-required {
+        top: 75px;
+        left: 15px;
+    }
+
+    
+}
+
+/* END Tablet Section */
+
+/* START Desktop Section */
+
+@media screen and (min-width: 900px) {
+
+    .header-ctn {
+        height: 83px;
+    }
+
+    .logo {
+        margin-top: 18px;
+    }
+
+    .form-ctn {
+        width: 700px;
+        height: 400px;
+    }
+
+    .form {
+        margin-top: 50px;
+    }
+
+    .input-ctn {
+        margin-right: 100px;
+    }
+
+    .input {
+        width: 300px;
+        
+
+    }
+
+    .input-label {
+
+    }
+
+    .submit-btn {
+        margin-top: 50px;
+    }
+
+    #ssn-required,
+    #dob-required {
+        
+        left: 80px;
+    }
+}
+
+/* END Desktop Section */
+
+
